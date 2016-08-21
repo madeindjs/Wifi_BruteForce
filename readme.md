@@ -1,10 +1,15 @@
-Wifi BruteForce
-=========
+Hacker tools
+========
+
+My personnals test in networks hacks.
+
+WiFi Bruteforce
+-----------------------
 
 A **Python** script to find all Wifi Networks in the area and try the 
 [100K most used passwords](https://github.com/danielmiessler/SecLists) on them.
 
-## TODO:
+### TODO:
 
 * add a percentage
 * send on pip
