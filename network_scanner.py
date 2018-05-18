@@ -20,7 +20,7 @@ def scan_ips(interface='wlan0', ips='192.168.1.0/24'):
 		for sent, received in answer:
 			print(received.summary())
 
-	except KeyboardInterupt:
+	except KeyboardInterrupt:
 		print('[*] User requested Shutdown')
 		print('[*] Quitting...')
 		sys.exit(1)
